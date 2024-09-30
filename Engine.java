@@ -1,9 +1,12 @@
 
+/**
+ * Engine class, has attributes for fuelType, maximum Fuel, minimum fuel, and current fuel level
+ * Engine also has methods for accessing fuel type, minumum, maximum, and current level
+ * as well as methods for making the engine run and refilling the fuel
+ */
 public class Engine {
-//needs a fuel type attribute
     private FuelType f; //probs shouldn't change fueltype
     private double maxFuel;
-    private double minFuel;
     private double currentFuel;
    
 
@@ -11,50 +14,53 @@ public class Engine {
     public Engine(FuelType f, double maxFuel){
         this.f = f;
         this.maxFuel = maxFuel;
-        this.minFuel = 0;
         this.currentFuel = maxFuel;
     }
 
-    //getter 
+    /**
+     * accessor for the fuel type
+     * @return fuel type for the engine
+     */
     public FuelType getFuelType(){
         return this.f;
     }
 
-    //Getter
+    /**
+     * accessor for the maximum fuel level
+     * @return the maximum fuel level
+     */
     public double getMaxFuel() {
         return this.maxFuel;
     }
 
-    //Getter
-    public double getMinFuel() {
-        return this.minFuel;
-    }
-
-    //Getter
+    /**
+     * accessor for the current fuel level
+     * @return the current fuel level
+     */
     public double getCurrentFuel() {
         return this.currentFuel;
     }
 
+    /**
+     * refuels the train, topping up the current fuel to the max fuel level
+     */
     public void refuel() {
         this.currentFuel = this.maxFuel; //resets the fuel level to the maximum
     }
 
+
+    /**
+     * if the train isn't yet out of fuel, it decreases the fuel and prints out remaining fuel level
+     * @return boolean: true/false if the train can keep going
+     */
     public boolean go(){
         if (this.currentFuel > 0){
             this.currentFuel -= 10;
-            System.out.println("Current fuel level is " + this.currentFuel + " hours of electricity");
+            System.out.println("Current fuel level after moving is " + this.currentFuel + " hours of electricity");
             return true;
         } else {
-            System.out.println("Whoops! No fuel! Can't drive!");
+            System.out.println("Whoops! No fuel! Can't drive! AAA!!!");
             return false;
         }
-    }
-
-    public static void main(String[] args) {
-        Engine myEngine = new Engine(FuelType.ELECTRIC, 100.0);
-        while (myEngine.go()) {
-            System.out.println("Choo choo!");
-        }
-        System.out.println("Out of fuel.");
     }
 }
