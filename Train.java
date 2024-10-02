@@ -81,7 +81,9 @@ public class Train {
         }
     }
 
-public static void main(String[] args) {
+ //TESTING
+ 
+/*public static void main(String[] args) {
     Train myTrain = new Train(FuelType.ELECTRIC, 100, 3, 25);
         Passenger victim = new Passenger("Jane");
         Passenger victim2 = new Passenger("Tim");
@@ -93,5 +95,5 @@ public static void main(String[] args) {
 
         victim.getOffCar(myTrain.getCar(0));
         myTrain.printManifest();
-    }
+    } */
 }

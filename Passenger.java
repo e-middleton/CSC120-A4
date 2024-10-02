@@ -1,5 +1,3 @@
-//doesn't currently have a relationship with the train?
-
 /**
  * Passenger class, has a name attribute and methods for boarding and getting off of Train cars
  */
@@ -20,7 +18,7 @@ public class Passenger {
      * @return the name of the passenger
      */
     public String getName(){
-        return name;
+        return this.name;
     }
 
     /**
