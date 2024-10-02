@@ -20,7 +20,7 @@ public class Car {
      * accessor for the maximum capacity of the car
      * @return the maximum capacity for the car
      */
-    public int getMaxCapacity(){
+    public int getCapacity(){
         return this.maxCapacity;
     }
 
@@ -28,7 +28,7 @@ public class Car {
      * finds how many passengers are currently in the car
      * @return the number of passengers currently in the car
      */
-    public int getCapacity(){
+    public int getCurrentCapacity(){
         return Passengers.size(); //how many elements are in the ArrayList
     }
 
@@ -77,26 +77,11 @@ public class Car {
         if(Passengers.size() > 0){
             System.out.println("In this car is:");
             for(int i = 0; i < Passengers.size(); i++){
-                System.out.println((Passengers.get(i)).getName()); //element at index i and then calls method getName
+                System.out.println((Passengers.get(i)).getName()); //element at index i and then calls method getName so it's not just saying that an object exists
             }
         } else {
             System.out.println("This car is EMPTY.");
         }
 
     }
-
-    public static void main(String[] args) {
-       Car myCar = new Car(25);
-       Passenger victim = new Passenger("Jane");
-       Passenger victim2 = new Passenger("Tim");
-       myCar.addPassenger(victim);
-       myCar.addPassenger(victim2);
-       myCar.printManifest();
-       //System.out.println(myCar.getMaxCapacity());
-       System.out.println();
-
-       myCar.removePassenger(victim);
-       myCar.printManifest();
-     }
-
 }

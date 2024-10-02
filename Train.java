@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 
-//how do I initialize cars from my train class/use the passenger capacity int?
 /**
  * class Train which has an Arraylist of Cars that belong to the train as well as an Engine that it uses to run
  * has methods for accessing the attributes as well as getting the maximum capacity, seats remaining, and a printed
@@ -10,6 +9,13 @@ public class Train {
     private ArrayList<Car> Cars; //the train of cars
     private Engine trainEngine;
 
+    /**
+     * Constructor for the Train
+     * @param fuelType which type of fuel the Engine is using
+     * @param fuelCapacity the maximum fuel level of the Engine
+     * @param nCars How many cars this train has
+     * @param passengerCapacity the maximum number of passengers for each car
+     */
     public Train(FuelType fuelType, double fuelCapacity, int nCars, int passengerCapacity){
         this.trainEngine = new Engine(fuelType, fuelCapacity);
         this.Cars = new ArrayList<Car>(nCars); 
@@ -41,7 +47,7 @@ public class Train {
      * @return the maximum capacity of the train
      */
     public int getMaxCapacity(){
-        return Cars.size() * (Cars.get(0).getMaxCapacity()); 
+        return Cars.size() * (Cars.get(0).getCapacity()); 
     }
 
     /**
@@ -65,6 +71,8 @@ public class Train {
      */
     public void printManifest(){
         if(Cars.size() > 0){
+            System.out.println("PASSENGERS ABOARD THE POLAR EXPRESS");
+            System.out.println();
             for(int i = 0; i < Cars.size(); i++){
                 Cars.get(i).printManifest();
             }

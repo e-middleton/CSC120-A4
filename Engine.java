@@ -1,7 +1,7 @@
 
 /**
- * Engine class, has attributes for fuelType, maximum Fuel, minimum fuel, and current fuel level
- * Engine also has methods for accessing fuel type, minumum, maximum, and current level
+ * Engine class, has attributes for fuelType, maximum Fuel, and current fuel level
+ * Engine also has methods for accessing fuel type, maximum, and current level
  * as well as methods for making the engine run and refilling the fuel
  */
 public class Engine {
