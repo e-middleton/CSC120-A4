@@ -27,9 +27,11 @@ public class Passenger {
      * @return true/false: whether or not it was possible to board the car
      */
     public boolean boardCar(Car c){
-        if (c.addPassenger(this)){ //checks if addPassenger returns true
+        try {
+            c.addPassenger(this); //checks if addPassenger returns true
             return true;
-        } else{
+        } catch (Exception e) {
+            System.out.println("------>" + e.getLocalizedMessage());
             return false;
         }
     }
@@ -41,10 +43,25 @@ public class Passenger {
      * in the first place
      */
     public boolean getOffCar(Car c){
-        if (c.removePassenger(this)){ //if they were on the car, they can be removed
+        try {
+            c.removePassenger(this); //if they were on the car, they can be removed
             return true;
-        } else{
+        } catch (Exception e) {
+            System.out.println("----->" + e.getLocalizedMessage());
             return false;
         }
+    }
+
+    public static void main(String[] args) {
+        Passenger victim = new Passenger("Jane");
+        Car myCar = new Car(1);
+        Passenger extra = new Passenger("James");
+
+        victim.boardCar(myCar);
+        myCar.printManifest();
+
+        extra.boardCar(myCar);
+        myCar.printManifest();
+
     }
 }
