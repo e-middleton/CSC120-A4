@@ -36,7 +36,7 @@ public class Train {
     /**
      * finds a car at a specified index in the ArrayList of all the cars in the train
      * @param i the index for the ArrayList of cars, or the number of the train car you want to find
-     * @returnt the Car at the index i
+     * @return the Car at the index i
      */
     public Car getCar(int i){
         return Cars.get(i);
@@ -83,8 +83,8 @@ public class Train {
 
  //TESTING
  
-/*public static void main(String[] args) {
-    Train myTrain = new Train(FuelType.ELECTRIC, 100, 3, 25);
+/* public static void main(String[] args) {
+    Train myTrain = new Train(FuelType.ELECTRIC, 100, 3, 0);
         Passenger victim = new Passenger("Jane");
         Passenger victim2 = new Passenger("Tim");
         //System.out.println(myTrain.seatsRemaining());
@@ -95,5 +95,5 @@ public class Train {
 
         victim.getOffCar(myTrain.getCar(0));
         myTrain.printManifest();
-    } */
-}
+    }  */
+} 
