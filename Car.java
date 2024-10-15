@@ -7,12 +7,15 @@ import java.util.ArrayList; //need a resizable array for passengers
  * removing passengers and printing who is aboard
  */
 public class Car {
-    private ArrayList<Passenger> Passengers;
+    private ArrayList<Passenger> passengers;
     private int maxCapacity;
 
-    //constructor
+    /**
+     * Constructor for the Car class
+     * @param maxCapacity is the maximum number of People able to be in the Car
+     */
     public Car(int maxCapacity){
-        this.Passengers = new ArrayList<Passenger>(maxCapacity);
+        this.passengers = new ArrayList<Passenger>(maxCapacity);
         this.maxCapacity = maxCapacity;
     }
 
@@ -29,7 +32,7 @@ public class Car {
      * @return the number of passengers currently in the car
      */
     public int getCurrentCapacity(){
-        return Passengers.size(); //how many elements are in the ArrayList
+        return passengers.size(); //how many elements are in the ArrayList
     }
 
     /**
@@ -38,19 +41,23 @@ public class Car {
      */
     public int seatsRemaining(){
         int open;
-        open = maxCapacity - Passengers.size(); //how many total seats - curr passengers
+        open = maxCapacity - passengers.size(); //how many total seats - curr passengers
         return open;
     }
 
     /**
-     * checks to see if there is available seats, and if there is, adds a passenger to the car
+     * checks to see if the passenger has already boarded, and if there is available seats. If there are, it adds a passenger to the car
      * @param Person the passenger trying to be added to the car
      * @return boolean true/false: whether or not the person was added to the car
      */
-    public boolean addPassenger(Passenger Person){ 
-        if(seatsRemaining() > 0){
-            Passengers.add(Person); //appends the person to end of the ArrayList
-            return true;
+    public boolean addPassenger(Passenger Person){
+        if (!(passengers.contains(Person))) { //checks if the person is not already in the Car
+            if(seatsRemaining() > 0){
+                passengers.add(Person); //appends the person to end of the ArrayList
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
@@ -62,8 +69,8 @@ public class Car {
      * @return boolean true/false: whether or not the passenger was removed from the car
      */
     public boolean removePassenger(Passenger Person){
-        if(Passengers.contains(Person)){
-            Passengers.remove(Person); //if person is in Passengers, they are removed
+        if(passengers.contains(Person)){
+            passengers.remove(Person); //if person is in Passengers, they are removed
             return true;
         } else {
             return false;
@@ -74,10 +81,10 @@ public class Car {
      * prints out a list of the passengers currently in the car, if nobody is in the car, says the car is EMPTY
      */
     public void printManifest(){
-        if(Passengers.size() > 0){
+        if(passengers.size() > 0){
             System.out.println("In this car is:");
-            for(int i = 0; i < Passengers.size(); i++){
-                System.out.println((Passengers.get(i)).getName()); //element at index i and then calls method getName so it's not just saying that an object exists
+            for(int i = 0; i < passengers.size(); i++){
+                System.out.println((passengers.get(i)).getName()); //element at index i and then calls method getName so it's not just saying that an object exists
             }
         } else {
             System.out.println("This car is EMPTY.");
