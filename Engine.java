@@ -10,7 +10,9 @@ public class Engine {
     private double currentFuel;
    
 
-    //why is my constructor so weird
+    /**
+     * Constructor for the Engine class
+     */
     public Engine(FuelType f, double maxFuel){
         this.f = f;
         this.maxFuel = maxFuel;
@@ -54,7 +56,7 @@ public class Engine {
      * @return boolean: true/false if the train can keep going
      */
     public boolean go(){
-        if (this.currentFuel > 0){
+        if ((this.currentFuel - 10) >= 0){
             this.currentFuel -= 10;
             System.out.println("Current fuel level after moving is " + this.currentFuel + " hours of electricity");
             return true;
