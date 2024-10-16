@@ -60,6 +60,8 @@ public class Passenger {
         victim.boardCar(myCar);
         myCar.printManifest();
 
+        System.out.println();
+        extra.boardCar(myCar);
         extra.boardCar(myCar);
         myCar.printManifest();
 

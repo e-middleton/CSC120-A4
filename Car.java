@@ -56,10 +56,10 @@ public class Car {
                 passengers.add(Person); //appends the person to end of the ArrayList
                 return true;
             } else {
-                return false;
+                throw new RuntimeException("Car is full!");
             }
         } else {
-            return false;
+            throw new RuntimeException("Passenger is already aboard!");
         }
     }
 
