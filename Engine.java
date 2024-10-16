@@ -61,7 +61,7 @@ public class Engine {
             System.out.println("Current fuel level after moving is " + this.currentFuel + " hours of electricity");
             return true;
         } else {
-            System.out.println("Whoops! No fuel! Can't drive! AAA!!!");
+            System.out.println("Whoops! Not enough fuel! Can't drive! AAA!!!");
             return false;
         }
     }
